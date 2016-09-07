@@ -230,21 +230,21 @@
 					optionsChanged = false;
 				this.children("option").each(function(index) {
 					var $this = $(this);
-					if ((this.value <= numberOfDays)) {
+					if (this.value <= numberOfDays) {
 						if ($this.is(":disabled") &&
 						    (this.value != 0)) {
-							$this.attr("disabled", false);
+							this.disabled = false;
 							$this.show();
 							optionsChanged = true;
 						}
 						if (needReset) {
-							$this.attr("selected", true);
+							this.selected = true;
 							that.selectedIndex = index;
 							that.trigger("change");
 							needReset = false;
 						}
 					} else if (!$this.is(":disabled")) {
-						$this.attr("disabled", true);
+						this.disabled = true;
 						$this.hide();
 						optionsChanged = true;
 					}
